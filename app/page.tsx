@@ -37,7 +37,7 @@ const projects = [
     shortTitle: "Code Canvas",
     status: "Jun 2026 – Sep 2026",
     cardSummary: "Local-first algorithm learning platform featuring an interactive visualization engine for concepts like Graphs, DP, and Binary Search with step-by-step trace timelines.",
-    tags: ["React.js", , "TypeScript", "Tailwind CSS", "Algorithms", "Three.js", "Visualization", "Vite", "FastAPI", "Problem Definition"],
+    tags: ["React.js", "TypeScript", "Tailwind CSS", "Algorithms", "Three.js", "Visualization", "Vite", "FastAPI", "Problem Definition"],
   },
 ];
 
@@ -198,6 +198,7 @@ export default function Home() {
   useEffect(() => {
     const homeSection = document.getElementById("home");
     const aboutSection = document.getElementById("about");
+    const kafumiSection = document.getElementById("kafumi");
     const projectsSection = document.getElementById("projects");
     const contactSection = document.getElementById("contact");
 
@@ -212,22 +213,23 @@ export default function Home() {
       const nearPageBottom =
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 32;
-      const scrollMarker = window.scrollY + 140;
 
-      if (
-        nearPageBottom ||
-        (contactSection && scrollMarker >= contactSection.offsetTop)
-      ) {
+      if (nearPageBottom || (contactSection && contactSection.getBoundingClientRect().top <= 140)) {
         setActiveSection("contact");
         return;
       }
 
-      if (projectsSection && scrollMarker >= projectsSection.offsetTop) {
+      if (projectsSection && projectsSection.getBoundingClientRect().top <= 140) {
         setActiveSection("projects");
         return;
       }
 
-      if (aboutSection && scrollMarker >= aboutSection.offsetTop) {
+      if (kafumiSection && kafumiSection.getBoundingClientRect().top <= 140) {
+        setActiveSection("kafumi");
+        return;
+      }
+
+      if (aboutSection && aboutSection.getBoundingClientRect().top <= 140) {
         setActiveSection("about");
         return;
       }
@@ -511,6 +513,26 @@ export default function Home() {
               <p className="mt-5 text-[0.95rem] leading-7 text-[#3E514D] lg:text-[1rem] lg:leading-[1.85rem]">
                 A full-stack cafe discovery platform featuring 75+ cafés where I led ideation, data-driven decision-making, and go-to-market strategy while building the core technical infrastructure.
               </p>
+              
+              <div className="mt-7">
+                <a
+                  href="https://kafumi.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border border-[#0F4C45]/20 bg-[#DDE7DE] px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.08em] text-[#0F4C45] transition hover:border-[#0F4C45]/40 hover:bg-[#0F4C45] hover:text-[#F7F1E8] sm:text-[0.82rem]"
+                >
+                  Visit Kafumi
+                  <svg
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <div className="relative w-full lg:w-7/12 mt-4 lg:mt-0 overflow-hidden">
