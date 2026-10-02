@@ -361,14 +361,14 @@ export default function Home() {
       className={`${montserrat.className} min-h-screen overflow-x-hidden bg-[#F7F1E8] text-[#162b26]`}
     >
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5 lg:px-8">
-        <div className="mx-auto flex w-fit items-center justify-center rounded-full border border-[#0F4C45]/15 bg-[#F7F1E8]/92 p-1.5 shadow-[0_14px_40px_rgba(22,43,38,0.08)] backdrop-blur-md">
-          <nav aria-label="Primary">
-            <ul className="flex items-center gap-1">
+        <div className="mx-auto flex w-fit max-w-[95vw] overflow-x-auto no-scrollbar items-center justify-start sm:justify-center rounded-[2rem] sm:rounded-full border border-[#0F4C45]/15 bg-[#F7F1E8]/92 p-1.5 shadow-[0_14px_40px_rgba(22,43,38,0.08)] backdrop-blur-md">
+          <nav aria-label="Primary" className="min-w-max">
+            <ul className="flex items-center gap-0.5 sm:gap-1">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className={`block rounded-full px-4 py-2 text-[0.8rem] font-semibold transition sm:px-4.5 sm:py-2.5 sm:text-[0.83rem] lg:px-5 lg:py-2.5 lg:text-[0.88rem] ${activeSection === item.href.slice(1)
+                    className={`block rounded-full px-3 py-1.5 text-[0.72rem] font-semibold transition sm:px-4.5 sm:py-2.5 sm:text-[0.83rem] lg:px-5 lg:py-2.5 lg:text-[0.88rem] ${activeSection === item.href.slice(1)
                       ? "bg-[#043439] text-white shadow-[0_10px_24px_rgba(4,52,57,0.22)]"
                       : "text-[#0F4C45] hover:bg-[#0F4C45]/8"
                       }`}
@@ -386,13 +386,13 @@ export default function Home() {
         id="home"
         className="relative min-h-screen scroll-mt-10 bg-[#F7F1E8] sm:scroll-mt-14"
       >
-        <div className="mx-auto grid min-h-[calc(100vh-5.5rem)] w-full max-w-[1160px] grid-cols-1 items-center gap-8 px-6 pb-8 pt-20 sm:px-8 sm:py-10 md:px-10 md:py-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-8 lg:px-12 lg:py-10 xl:max-w-[1220px] xl:gap-10 xl:px-14">
+        <div className="mx-auto grid min-h-[calc(100vh-5.5rem)] w-full max-w-[1160px] grid-cols-1 items-center gap-12 px-6 pb-8 pt-24 sm:gap-8 sm:px-8 sm:py-10 md:px-10 md:py-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-8 lg:px-12 lg:py-10 xl:max-w-[1220px] xl:gap-10 xl:px-14">
           <div className="mx-auto w-full max-w-[420px] text-left">
             <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-[#0F4C45] sm:text-[0.74rem] lg:text-[0.8rem]">
               Technical Product Builder
             </p>
 
-            <h1 className="max-w-[12ch] text-[2.15rem] font-extrabold leading-[0.92] tracking-tight sm:text-[2.9rem] md:text-[3.5rem] lg:text-[3.9rem] xl:text-[4.35rem]">
+            <h1 className="max-w-[12ch] text-[2.25rem] font-extrabold leading-[1.05] tracking-tight sm:text-[2.9rem] md:text-[3.5rem] lg:text-[3.9rem] xl:text-[4.35rem]">
               Hello, I’m Mayank Goyal.
             </h1>
 
@@ -541,7 +541,7 @@ export default function Home() {
 
               <div
                 id="kafumi-carousel"
-                className="flex items-center w-max gap-6 lg:gap-8 py-24 pointer-events-none px-[35vw] lg:px-[15vw]"
+                className="flex items-center w-max gap-5 sm:gap-6 lg:gap-8 py-16 sm:py-24 pointer-events-none px-[20vw] sm:px-[35vw] lg:px-[15vw]"
               >
                 {[1, 2, 3, 4, 5, 6, 7].map((num) => {
                   const isActive = activeKafumiSlide === num;
